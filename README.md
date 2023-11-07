@@ -1,8 +1,6 @@
 # ThemeSong
-Add ThemeSong to your stream
+[![Tutorial](ThemeSong_thumbnail.png)](https://www.youtube.com/watch?v=4YlquqggxPw)
 
-Streamer.bot commands: ThemeSong and onThemeSongEnded
-
-Required imports for main code: mscorlib.dll and System.dll
-
-Tutorial: https://youtu.be/4YlquqggxPw
+## Add Theme song to your stream.
+After user redeems this reward you will get your own theme song. Every time you move you theme song will be played.
+You can modify which keys are triggering that. For list of values look at the [MSDN](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)

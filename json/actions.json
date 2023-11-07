@@ -1,0 +1,357 @@
+[
+  {
+    "id": "4ab5e170-04d9-418e-a22d-a12a23daf766",
+    "queue": null,
+    "enabled": true,
+    "excludeFromHistory": false,
+    "name": "ThemeSong_Config",
+    "group": "ThemeSong",
+    "alwaysRun": false,
+    "randomAction": false,
+    "concurrent": false,
+    "triggers": [],
+    "actions": [
+      {
+        "variableName": "obsConnectionID",
+        "value": 0,
+        "autoType": true,
+        "id": "363c4dd2-10b6-45cc-b6e0-618bb646ab45",
+        "weight": 0.0,
+        "type": 123,
+        "group": "User settings",
+        "enabled": true,
+        "index": 1
+      },
+      {
+        "variableName": "themeSongSource",
+        "value": "ThemeSong",
+        "autoType": true,
+        "id": "8e3fe9b4-25cc-437e-a0b8-bdc749d55b22",
+        "weight": 0.0,
+        "type": 123,
+        "group": "Internal settings",
+        "enabled": true,
+        "index": 0
+      },
+      {
+        "variableName": "themeSongPath",
+        "value": "Your theme song path",
+        "autoType": true,
+        "id": "19e4f954-0e35-4e21-ad94-d623d43be444",
+        "weight": 0.0,
+        "type": 123,
+        "group": "User settings",
+        "enabled": true,
+        "index": 2
+      },
+      {
+        "variableName": "volumePercent",
+        "value": 0.1,
+        "autoType": true,
+        "id": "3caa9fb5-6deb-43d0-8320-329ae4da6509",
+        "weight": 0.0,
+        "type": 123,
+        "group": "User settings",
+        "enabled": true,
+        "index": 4
+      },
+      {
+        "value": "Volume percent:should be in range 0.0 to 1.0",
+        "color": "",
+        "id": "a3e8598f-f43d-49b5-bbc2-1c87099f236e",
+        "weight": 0.0,
+        "type": 1009,
+        "group": "User settings",
+        "enabled": true,
+        "index": 3
+      },
+      {
+        "value": "Check your connection ID in Stream Apps->OBS (first column)",
+        "color": "",
+        "id": "9f6d95ab-d9ad-403e-8903-1520cd31d7c6",
+        "weight": 0.0,
+        "type": 1009,
+        "group": "User settings",
+        "enabled": true,
+        "index": 0
+      },
+      {
+        "variableName": "keys",
+        "value": "0x20,0x41,0x44,0x53,0x57",
+        "autoType": false,
+        "id": "b961c577-acfc-4f15-b0f5-84e6a50ff0b1",
+        "weight": 0.0,
+        "type": 123,
+        "group": "User settings",
+        "enabled": true,
+        "index": 6
+      },
+      {
+        "value": "List of keys separated by a comma",
+        "color": "",
+        "id": "4e3a4bc9-e4ad-4006-ba43-7f0c58b2b28c",
+        "weight": 0.0,
+        "type": 1009,
+        "group": "User settings",
+        "enabled": true,
+        "index": 5
+      },
+      {
+        "executeCodeId": "4d6e1af9-37c5-480b-990f-125555801c24",
+        "method": "IsConfigValid",
+        "runOnUiThread": false,
+        "saveResultToVariable": false,
+        "saveToVariable": "",
+        "id": "ef9948f5-9793-4029-bbab-75074a5e1aa4",
+        "weight": 0.0,
+        "type": 99998,
+        "group": "",
+        "enabled": true,
+        "index": 2
+      },
+      {
+        "executeCodeId": "4d6e1af9-37c5-480b-990f-125555801c24",
+        "method": "GetCurrentScene",
+        "runOnUiThread": false,
+        "saveResultToVariable": false,
+        "saveToVariable": "",
+        "id": "3bb98fdf-84ed-40bb-a5a9-689848f4ac28",
+        "weight": 0.0,
+        "type": 99998,
+        "group": "",
+        "enabled": true,
+        "index": 3
+      }
+    ],
+    "actionGroups": [
+      {
+        "id": "1b7537a3-5a75-41bf-b0ce-b3548b133a64",
+        "weight": 0.0,
+        "name": "User settings",
+        "random": false,
+        "index": 0
+      },
+      {
+        "id": "9d0e7ae5-2641-46ea-acb4-642fcf8a3140",
+        "weight": 0.0,
+        "name": "Internal settings",
+        "random": false,
+        "index": 1
+      }
+    ],
+    "collapsedGroups": []
+  },
+  {
+    "id": "0b739c13-1a2e-4453-b37b-95ef437ebef2",
+    "queue": null,
+    "enabled": true,
+    "excludeFromHistory": false,
+    "name": "ThemeSong_Start",
+    "group": "ThemeSong",
+    "alwaysRun": false,
+    "randomAction": false,
+    "concurrent": false,
+    "triggers": [],
+    "actions": [
+      {
+        "actionId": "4ab5e170-04d9-418e-a22d-a12a23daf766",
+        "runImmedately": true,
+        "id": "f8f17e39-43f8-47df-9f46-ca523dc030e4",
+        "weight": 0.0,
+        "type": 4,
+        "group": "",
+        "enabled": true,
+        "index": 0
+      },
+      {
+        "actionId": "490021e8-b06f-482b-b618-6d0824810024",
+        "runImmedately": false,
+        "id": "9c47efdb-224c-412d-85ab-a7f3dff10666",
+        "weight": 0.0,
+        "type": 4,
+        "group": null,
+        "enabled": true,
+        "index": 2
+      },
+      {
+        "actionId": "4df0623e-980d-4226-aa48-8aa9241e5d12",
+        "state": 0,
+        "id": "725ee792-6a49-4950-aafd-bb51ef579a2f",
+        "weight": 0.0,
+        "type": 1004,
+        "group": null,
+        "enabled": true,
+        "index": 3
+      },
+      {
+        "executeCodeId": "4d6e1af9-37c5-480b-990f-125555801c24",
+        "method": "CreateThemeSongMediaInput",
+        "runOnUiThread": false,
+        "saveResultToVariable": false,
+        "saveToVariable": "",
+        "id": "1e1158f5-cf6f-4ccc-9104-0c517211e4f6",
+        "weight": 0.0,
+        "type": 99998,
+        "group": "",
+        "enabled": true,
+        "index": 1
+      }
+    ],
+    "actionGroups": [],
+    "collapsedGroups": []
+  },
+  {
+    "id": "490021e8-b06f-482b-b618-6d0824810024",
+    "queue": null,
+    "enabled": true,
+    "excludeFromHistory": false,
+    "name": "ThemeSong_Listener",
+    "group": "ThemeSong",
+    "alwaysRun": false,
+    "randomAction": false,
+    "concurrent": false,
+    "triggers": [],
+    "actions": [
+      {
+        "executeCodeId": "4d6e1af9-37c5-480b-990f-125555801c24",
+        "method": "Listener",
+        "runOnUiThread": false,
+        "saveResultToVariable": false,
+        "saveToVariable": "",
+        "id": "4d969d59-c0ab-4785-9b4f-693ae9535aab",
+        "weight": 0.0,
+        "type": 99998,
+        "group": null,
+        "enabled": true,
+        "index": 0
+      }
+    ],
+    "actionGroups": [],
+    "collapsedGroups": []
+  },
+  {
+    "id": "ebed33e6-1b07-4f61-b049-a19d00b06eab",
+    "queue": null,
+    "enabled": true,
+    "excludeFromHistory": false,
+    "name": "ThemeSong_Engine",
+    "group": "ThemeSong",
+    "alwaysRun": false,
+    "randomAction": false,
+    "concurrent": false,
+    "triggers": [],
+    "actions": [
+      {
+        "name": "ThemeSong_Engine",
+        "description": "",
+        "keepAlive": false,
+        "references": [
+          "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\mscorlib.dll",
+          "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\System.Core.dll"
+        ],
+        "byteCode": "dXNpbmcgU3lzdGVtOw0KdXNpbmcgU3lzdGVtLlJ1bnRpbWUuSW50ZXJvcFNlcnZpY2VzOw0KdXNpbmcgU3lzdGVtLlRocmVhZGluZzsNCnVzaW5nIFN5c3RlbS5MaW5xOw0KdXNpbmcgU3lzdGVtLklPOw0KdXNpbmcgTmV3dG9uc29mdC5Kc29uOw0KDQpjbGFzcyBPQlNSZXF1ZXN0DQp7DQoJcHVibGljIHN0cmluZyByZXF1ZXN0VHlwZTsNCglwdWJsaWMgc3RyaW5nIHJlcXVlc3RJZCA9IG51bGw7DQoJcHVibGljIG9iamVjdCByZXF1ZXN0RGF0YTsNCn0NCg0KY2xhc3MgT0JTUmVxdWVzdERhdGEgOiBTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5EaWN0aW9uYXJ5PHN0cmluZywgb2JqZWN0Pnt9DQoNCmNsYXNzIE9CU1JlcXVlc3RCYXRjaFJlcXVlc3RzIDogU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdDxPQlNSZXF1ZXN0Pnt9Ow0KDQpzdHJ1Y3QgT0JTTWVkaWFJbnB1dFNldHRpbmdzDQp7DQoJcHVibGljIGJvb2wgY2xvc2Vfd2hlbl9pbmFjdGl2ZTsNCglwdWJsaWMgYm9vbCAgaHdfZGVjb2RlOw0KCXB1YmxpYyBzdHJpbmcgbG9jYWxfZmlsZTsNCn0NCg0KcHVibGljIGNsYXNzIENQSElubGluZQ0Kew0KCXN0cmluZyBMb2dQcmVmaXggPSAiVFNPIFRoZW1lU29uZyA6OiAiOw0KCVtEbGxJbXBvcnQoInVzZXIzMi5kbGwiKV0NCglzdGF0aWMgZXh0ZXJuIGludCBHZXRBc3luY0tleVN0YXRlKGludCBrZXkpOw0KCS8vaW50W10ga2V5cyA9IHsweDU3LCAweDQxLCAweDUzLCAweDQ0LCAweDIwfTsgLy8gV0FTRCArIFNwYWNlDQoJDQoJc3RhdGljIHB1YmxpYyBpbnQgb2JzQ29ubmVjdGlvbklEID0gMDsNCglzdGF0aWMgcHVibGljIHN0cmluZyBzY2VuZSA9ICIiOw0KCXN0YXRpYyBwdWJsaWMgc3RyaW5nIHNvdXJjZSA9ICIiOw0KCXN0YXRpYyBwdWJsaWMgc3RyaW5nIHRoZW1lU29uZ1BhdGggPSAiIjsNCglzdGF0aWMgcHVibGljIGludFtdIGtleXMgPSBuZXcgaW50W117fTsNCglzdGF0aWMgcHVibGljIGRvdWJsZSB2b2x1bWVQZXJjZW50ID0gMS4wOw0KCQ0KCXN0YXRpYyBwdWJsaWMgYm9vbCBpc1RoZW1lU29uZ0VuZGVkID0gZmFsc2U7DQoJc3RhdGljIHB1YmxpYyBib29sIGlzVGhlbWVTb25nUGxheWluZyA9IGZhbHNlOw0KCQ0KCXB1YmxpYyBib29sIEV4ZWN1dGUoKQ0KCXsNCgkJcmV0dXJuIHRydWU7DQoJfQ0KCQ0KCXB1YmxpYyBib29sIElzQ29uZmlnVmFsaWQoKQ0KCXsNCgkJb2JzQ29ubmVjdGlvbklEID0gIGFyZ3MuQ29udGFpbnNLZXkoIm9ic0Nvbm5lY3Rpb25JRCIpID8gQ29udmVydC5Ub0ludDMyKGFyZ3NbIm9ic0Nvbm5lY3Rpb25JRCJdLlRvU3RyaW5nKCkpIDogMDsNCgkJDQoJCWlmICghQ1BILk9ic0lzQ29ubmVjdGVkKG9ic0Nvbm5lY3Rpb25JRCkpDQoJCXsNCgkJCUNQSC5Mb2dEZWJ1ZygkIntMb2dQcmVmaXh9Q29uZmlnIGlzIGludmFsaWQsIE9CUyBvbiBjb25uZWN0aW9uIElEIHtvYnNDb25uZWN0aW9uSUR9IGlzIG5vdCBjb25uZWN0ZWQuIik7DQoJCQlyZXR1cm4gZmFsc2U7CQkJDQoJCX0NCg0KCQlpZiAoIWFyZ3MuQ29udGFpbnNLZXkoInRoZW1lU29uZ1NvdXJjZSIpKQ0KCQl7DQoJCQlDUEguTG9nRGVidWcoJCJ7TG9nUHJlZml4fUNvbmZpZyBpcyBpbnZhbGlkLCB0aGVtZVNvbmdTb3VyY2UgYXJndW1lbnQgaXMgbWlzc2luZy4iKTsNCgkJCXJldHVybiBmYWxzZTsNCgkJfQkJCQ0KCQlzb3VyY2UgPSBhcmdzWyJ0aGVtZVNvbmdTb3VyY2UiXS5Ub1N0cmluZygpOw0KCQkNCgkJaWYgKCFhcmdzLkNvbnRhaW5zS2V5KCJ0aGVtZVNvbmdQYXRoIikpDQoJCXsNCgkJCUNQSC5Mb2dEZWJ1ZygkIntMb2dQcmVmaXh9Q29uZmlnIGlzIGludmFsaWQsIHRoZW1lU29uZ1NvdXJjZSBhcmd1bWVudCBpcyBtaXNzaW5nLiIpOw0KCQkJcmV0dXJuIGZhbHNlOw0KCQl9DQoJCQ0KCQl0aGVtZVNvbmdQYXRoID0gYXJnc1sidGhlbWVTb25nUGF0aCJdLlRvU3RyaW5nKCk7DQoJCWlmICghRmlsZS5FeGlzdHModGhlbWVTb25nUGF0aCkpIHsNCgkJCUNQSC5Mb2dEZWJ1ZygkIntMb2dQcmVmaXh9Q29uZmlnIGlzIGludmFsaWQsIHRoZW1lU29uZ1BhdGggZmlsZSBkb2VzIG5vdCBleGlzdC4iKTsNCgkJCXJldHVybiBmYWxzZTsNCgkJfQ0KCQkNCgkJaWYgKGFyZ3MuQ29udGFpbnNLZXkoInZvbHVtZVBlcmNlbnQiKSkNCgkJew0KCQkJdm9sdW1lUGVyY2VudCA9IENvbnZlcnQuVG9Eb3VibGUoYXJnc1sidm9sdW1lUGVyY2VudCJdLlRvU3RyaW5nKCkpOw0KCQl9DQoJCQ0KCQlpZiAoIWFyZ3MuQ29udGFpbnNLZXkoImtleXMiKSkNCgkJew0KCQkJQ1BILkxvZ0RlYnVnKCQie0xvZ1ByZWZpeH1Db25maWcgaXMgaW52YWxpZCwga2V5cyBhcmd1bWVudCBpcyBtaXNzaW5nLiIpOw0KCQkJcmV0dXJuIGZhbHNlOw0KCQl9CQkNCgkJa2V5cyA9IGFyZ3NbImtleXMiXS5Ub1N0cmluZygpLlNwbGl0KCcsJykuU2VsZWN0KHZhbCA9PiBoZXhTdHJpbmdUb0ludENvbnZlcnRlcih2YWwpKS5Ub0FycmF5KCk7DQoJCQ0KCQlyZXR1cm4gdHJ1ZTsNCgl9DQoJDQoJcHVibGljIGJvb2wgR2V0Q3VycmVudFNjZW5lKCkNCgl7DQoJCXNjZW5lID0gQ1BILk9ic0dldEN1cnJlbnRTY2VuZShvYnNDb25uZWN0aW9uSUQpOw0KCQlpZiAoc2NlbmUgPT0gIiIpIA0KCQl7DQoJCQlDUEguTG9nRGVidWcoJCJ7TG9nUHJlZml4fUNvbmZpZyBpcyBpbnZhbGlkLCBzY2VuZSBhcmd1bWVudCBpcyBlbXB0eS4iKTsNCgkJCXJldHVybiBmYWxzZTsNCgkJfQ0KCQkNCgkJcmV0dXJuIHRydWU7DQoJfQ0KCQ0KCXB1YmxpYyBib29sIENyZWF0ZVRoZW1lU29uZ01lZGlhSW5wdXQoKQ0KCXsNCgkJdmFyIHJlcXVlc3RzID0gbmV3IE9CU1JlcXVlc3RCYXRjaFJlcXVlc3RzKCk7DQoJCQ0KCQl2YXIgY3JlYXRlSW5wdXRSZXF1ZXN0ID0gbmV3IE9CU1JlcXVlc3R7DQoJCQlyZXF1ZXN0VHlwZSA9ICJDcmVhdGVJbnB1dCIsDQoJCQlyZXF1ZXN0RGF0YSA9IG5ldyBPQlNSZXF1ZXN0RGF0YXsNCgkJCQl7InNjZW5lTmFtZSIsIHNjZW5lfSwNCgkJCQl7ImlucHV0TmFtZSIsIHNvdXJjZX0sDQoJCQkJeyJpbnB1dEtpbmQiLCAiZmZtcGVnX3NvdXJjZSJ9LA0KCQkJCXsiaW5wdXRTZXR0aW5ncyIsIG5ldyBPQlNNZWRpYUlucHV0U2V0dGluZ3N7DQoJCQkJICBjbG9zZV93aGVuX2luYWN0aXZlID0gdHJ1ZSwNCgkJCQkgIGh3X2RlY29kZSA9IHRydWUsDQoJCQkJICBsb2NhbF9maWxlID0gdGhlbWVTb25nUGF0aA0KCQkJCX19LA0KCQkJCXsic2NlbmVJdGVtRW5hYmxlZCIsIHRydWV9DQoJCQl9DQoJCX07CQkNCgkJcmVxdWVzdHMuQWRkKGNyZWF0ZUlucHV0UmVxdWVzdCk7DQoJCQ0KCQl2YXIgc2V0SW5wdXRWb2x1bWVSZXF1ZXN0ID0gbmV3IE9CU1JlcXVlc3R7DQoJCQlyZXF1ZXN0VHlwZSA9ICJTZXRJbnB1dFZvbHVtZSIsDQoJCQlyZXF1ZXN0RGF0YSA9IG5ldyBPQlNSZXF1ZXN0RGF0YXsNCgkJCQl7ImlucHV0TmFtZSIsIHNvdXJjZX0sDQoJCQkJeyJpbnB1dFZvbHVtZU11bCIsIHZvbHVtZVBlcmNlbnR9DQoJCQl9DQoJCX07CQkNCgkJcmVxdWVzdHMuQWRkKHNldElucHV0Vm9sdW1lUmVxdWVzdCk7DQoJCQ0KCQl2YXIgc2xlZXBSZXF1ZXN0ID0gbmV3IE9CU1JlcXVlc3R7DQoJCQlyZXF1ZXN0VHlwZSA9ICJTbGVlcCIsDQoJCQlyZXF1ZXN0RGF0YSA9IG5ldyBPQlNSZXF1ZXN0RGF0YXsNCgkJCQl7InNsZWVwTWlsbGlzIiwgMTAwfQ0KCQkJfQ0KCQl9OwkJDQoJCXJlcXVlc3RzLkFkZChzbGVlcFJlcXVlc3QpOw0KCQkNCgkJdmFyIHRyaWdnZXJNZWRpYUlucHV0QWN0aW9uUmVxdWVzdCA9IG5ldyBPQlNSZXF1ZXN0ew0KCQkJcmVxdWVzdFR5cGUgPSAiVHJpZ2dlck1lZGlhSW5wdXRBY3Rpb24iLA0KCQkJcmVxdWVzdERhdGEgPSBuZXcgT0JTUmVxdWVzdERhdGF7DQoJCQkJeyJpbnB1dE5hbWUiLCBzb3VyY2V9LA0KCQkJCXsibWVkaWFBY3Rpb24iLCAiT0JTX1dFQlNPQ0tFVF9NRURJQV9JTlBVVF9BQ1RJT05fUEFVU0UifQ0KCQkJfQ0KCQl9OwkJDQoJCXJlcXVlc3RzLkFkZCh0cmlnZ2VyTWVkaWFJbnB1dEFjdGlvblJlcXVlc3QpOw0KCQkNCgkJc3RyaW5nIGRhdGEgPSBKc29uQ29udmVydC5TZXJpYWxpemVPYmplY3QocmVxdWVzdHMpOw0KCQlDUEguTG9nRGVidWcoZGF0YSk7DQoJCQ0KCQlDUEguT2JzU2VuZEJhdGNoUmF3KGRhdGEsIGZhbHNlLCAwLCBvYnNDb25uZWN0aW9uSUQpOw0KCQkNCgkJcmV0dXJuIHRydWU7DQoJfQ0KCQ0KCXB1YmxpYyBib29sIFJlbW92ZVRoZW1lU29uZ01lZGlhSW5wdXQoKQ0KCXsNCgkJLyoNCgkJew0KCQkgICJyZXF1ZXN0VHlwZSI6ICJSZW1vdmVJbnB1dCIsDQoJCSAgInJlcXVlc3REYXRhIjogew0KCQkJImlucHV0TmFtZSI6ICIldGhlbWVTb25nU291cmNlJSINCgkJICB9DQoJCX0NCgkJKi8NCgkJDQoJCXZhciByZW1vdmVJbnB1dFJlcXVlc3REYXRhID0gbmV3IE9CU1JlcXVlc3REYXRhew0KCQkJeyJpbnB1dE5hbWUiLCBzb3VyY2V9DQoJCX07DQoJCQ0KCQlDUEguT2JzU2VuZFJhdygiUmVtb3ZlSW5wdXQiLCBKc29uQ29udmVydC5TZXJpYWxpemVPYmplY3QocmVtb3ZlSW5wdXRSZXF1ZXN0RGF0YSksIG9ic0Nvbm5lY3Rpb25JRCk7DQoJCQ0KCQlyZXR1cm4gdHJ1ZTsNCgl9DQoJDQoJcHVibGljIGJvb2wgT25Tb25nRW5kKCkNCgl7DQoJCWlzVGhlbWVTb25nRW5kZWQgPSB0cnVlOw0KCQlyZXR1cm4gdHJ1ZTsNCgl9DQoJDQoJcHVibGljIGJvb2wgTGlzdGVuZXIoKQ0KCXsNCgkJaXNUaGVtZVNvbmdFbmRlZCA9IGZhbHNlOw0KCQkNCgkJd2hpbGUgKCFpc1RoZW1lU29uZ0VuZGVkKSB7DQoJCQlib29sIGlzRG93biA9IGlzRG93bkNoZWNrKGtleXMpOw0KCQkJYm9vbCBpc1ByZXNzZWQgPSBpc1ByZXNzZWRDaGVjayhrZXlzKTsNCg0KCQkJaWYoaXNQcmVzc2VkICYmICFpc1RoZW1lU29uZ1BsYXlpbmcpIHsNCgkJCQlDUEguTG9nRGVidWcoIlBsYXkiKTsNCgkJCQlDUEguT2JzTWVkaWFQbGF5KHNjZW5lLCBzb3VyY2UsIG9ic0Nvbm5lY3Rpb25JRCk7DQoJCQkJaXNUaGVtZVNvbmdQbGF5aW5nID0gdHJ1ZTsNCgkJCX0gZWxzZSBpZiAoIWlzRG93biAmJiBpc1RoZW1lU29uZ1BsYXlpbmcpIHsNCgkJCQlDUEguTG9nRGVidWcoIlBhdXNlIik7DQoJCQkJQ1BILk9ic01lZGlhUGF1c2Uoc2NlbmUsIHNvdXJjZSwgb2JzQ29ubmVjdGlvbklEKTsNCgkJCQlpc1RoZW1lU29uZ1BsYXlpbmcgPSBmYWxzZTsNCgkJCX07DQoJCQlUaHJlYWQuU2xlZXAoMTAwKTsNCgkJfQ0KCQkNCgkJcmV0dXJuIHRydWU7DQoJfQ0KCQ0KCWJvb2wgaXNQcmVzc2VkQ2hlY2soaW50W10ga2V5cykgew0KCQlpbnQgc3RhdGUgPSAwOw0KDQoJCWZvcmVhY2ggKGludCBrZXkgaW4ga2V5cykgew0KCQkJc3RhdGUgPSBzdGF0ZSB8IEdldEFzeW5jS2V5U3RhdGUoa2V5KTsNCgkJfQ0KCQlyZXR1cm4gQ29udmVydC5Ub0Jvb2xlYW4oc3RhdGUgPj4gMSk7DQoJfQ0KDQoJYm9vbCBpc0Rvd25DaGVjayhpbnRbXSBrZXlzKSB7DQoJCWludCBzdGF0ZSA9IDA7DQoNCgkJZm9yZWFjaCAoaW50IGtleSBpbiBrZXlzKSB7DQoJCQlzdGF0ZSA9IHN0YXRlIHwgR2V0QXN5bmNLZXlTdGF0ZShrZXkpOw0KCQl9DQoNCgkJcmV0dXJuIENvbnZlcnQuVG9Cb29sZWFuKHN0YXRlIDw8IDEpOw0KCX0NCgkNCglpbnQgaGV4U3RyaW5nVG9JbnRDb252ZXJ0ZXIoc3RyaW5nIHZhbHVlKQ0KCXsNCgkJcmV0dXJuIGludC5QYXJzZSh2YWx1ZS5SZXBsYWNlKCIweCIsICIiKSwgU3lzdGVtLkdsb2JhbGl6YXRpb24uTnVtYmVyU3R5bGVzLkhleE51bWJlcik7DQoJfQ0KfQ0K",
+        "precompile": false,
+        "delayStart": false,
+        "saveResultToVariable": false,
+        "saveToVariable": "",
+        "id": "4d6e1af9-37c5-480b-990f-125555801c24",
+        "weight": 0.0,
+        "type": 99999,
+        "group": null,
+        "enabled": true,
+        "index": 0
+      }
+    ],
+    "actionGroups": [],
+    "collapsedGroups": []
+  },
+  {
+    "id": "4df0623e-980d-4226-aa48-8aa9241e5d12",
+    "queue": null,
+    "enabled": false,
+    "excludeFromHistory": false,
+    "name": "ThemeSong_OnSongEnded",
+    "group": "ThemeSong",
+    "alwaysRun": false,
+    "randomAction": false,
+    "concurrent": false,
+    "triggers": [
+      {
+        "obsId": "19c0c623-0a07-4cba-a0f4-5ba037133bd1",
+        "eventName": "MediaInputPlaybackEnded",
+        "id": "b5275403-9b30-446a-8b52-b3822d7744f6",
+        "type": 14003,
+        "enabled": true,
+        "alwaysRun": false
+      }
+    ],
+    "actions": [
+      {
+        "variableName": "obsEvent.inputName",
+        "operation": 1,
+        "value": "%themeSongSource%",
+        "actionId": "00000000-0000-0000-0000-000000000000",
+        "runImmediately": true,
+        "afterAction": 1,
+        "elseActionId": "00000000-0000-0000-0000-000000000000",
+        "elseRunImmediately": true,
+        "elseAfterAction": 0,
+        "autoType": false,
+        "id": "47d5b38f-9eb8-4ffd-ac5e-1bc654cfde20",
+        "weight": 0.0,
+        "type": 120,
+        "group": null,
+        "enabled": true,
+        "index": 1
+      },
+      {
+        "actionId": "4ab5e170-04d9-418e-a22d-a12a23daf766",
+        "runImmedately": true,
+        "id": "3d6729d1-851b-4766-a058-f102ca3b6158",
+        "weight": 0.0,
+        "type": 4,
+        "group": "",
+        "enabled": true,
+        "index": 0
+      },
+      {
+        "executeCodeId": "4d6e1af9-37c5-480b-990f-125555801c24",
+        "method": "OnSongEnd",
+        "runOnUiThread": false,
+        "saveResultToVariable": false,
+        "saveToVariable": "",
+        "id": "6eaa0542-f598-4008-a1be-edde7034c5af",
+        "weight": 0.0,
+        "type": 99998,
+        "group": null,
+        "enabled": true,
+        "index": 2
+      },
+      {
+        "actionId": "4df0623e-980d-4226-aa48-8aa9241e5d12",
+        "state": 1,
+        "id": "d6266401-2e7b-4032-9fd2-de5638c40c56",
+        "weight": 0.0,
+        "type": 1004,
+        "group": "",
+        "enabled": true,
+        "index": 4
+      },
+      {
+        "executeCodeId": "4d6e1af9-37c5-480b-990f-125555801c24",
+        "method": "RemoveThemeSongMediaInput",
+        "runOnUiThread": false,
+        "saveResultToVariable": false,
+        "saveToVariable": "",
+        "id": "bc67fd98-e551-4a1f-87d5-9072d7fb1249",
+        "weight": 0.0,
+        "type": 99998,
+        "group": "",
+        "enabled": true,
+        "index": 3
+      }
+    ],
+    "actionGroups": [],
+    "collapsedGroups": []
+  }
+]
