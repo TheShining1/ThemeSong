@@ -4,6 +4,7 @@ using System.Threading;
 using System.Linq;
 using System.IO;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 class OBSRequest
 {
@@ -29,142 +30,141 @@ public class CPHInline
 	[DllImport("user32.dll")]
 	static extern int GetAsyncKeyState(int key);
 	//int[] keys = {0x57, 0x41, 0x53, 0x44, 0x20}; // WASD + Space
-
+	
 	static public int obsConnectionID = 0;
 	static public string scene = "";
 	static public string source = "";
 	static public string themeSongPath = "";
 	static public int[] keys = new int[]{};
 	static public double volumePercent = 1.0;
-
+	
 	static public bool isThemeSongEnded = false;
 	static public bool isThemeSongPlaying = false;
-
+	
 	public bool Execute()
 	{
 		return true;
 	}
-
+	
 	public bool IsConfigValid()
 	{
 		obsConnectionID =  args.ContainsKey("obsConnectionID") ? Convert.ToInt32(args["obsConnectionID"].ToString()) : 0;
-
+		
 		if (!CPH.ObsIsConnected(obsConnectionID))
 		{
 			CPH.LogDebug($"{LogPrefix}Config is invalid, OBS on connection ID {obsConnectionID} is not connected.");
-			return false;
+			return false;			
 		}
 
 		if (!args.ContainsKey("themeSongSource"))
 		{
 			CPH.LogDebug($"{LogPrefix}Config is invalid, themeSongSource argument is missing.");
 			return false;
-		}
+		}			
 		source = args["themeSongSource"].ToString();
-
+		
 		if (!args.ContainsKey("themeSongPath"))
 		{
 			CPH.LogDebug($"{LogPrefix}Config is invalid, themeSongSource argument is missing.");
 			return false;
 		}
-
+		
 		themeSongPath = args["themeSongPath"].ToString();
 		if (!File.Exists(themeSongPath)) {
 			CPH.LogDebug($"{LogPrefix}Config is invalid, themeSongPath file does not exist.");
 			return false;
 		}
-
+		
 		if (args.ContainsKey("volumePercent"))
 		{
 			volumePercent = Convert.ToDouble(args["volumePercent"].ToString());
 		}
-
+		
 		if (!args.ContainsKey("keys"))
 		{
 			CPH.LogDebug($"{LogPrefix}Config is invalid, keys argument is missing.");
 			return false;
-		}
+		}		
 		keys = args["keys"].ToString().Split(',').Select(val => hexStringToIntConverter(val)).ToArray();
-
+		
 		return true;
 	}
-
+	
 	public bool GetCurrentScene()
 	{
 		scene = CPH.ObsGetCurrentScene(obsConnectionID);
-		if (scene == "")
+		if (scene == "") 
 		{
 			CPH.LogDebug($"{LogPrefix}Config is invalid, scene argument is empty.");
 			return false;
-		}
-
+		}		
+		
 		return true;
 	}
-
+	
 	public bool CreateThemeSongMediaInput()
 	{
 		var requests = new OBSRequestBatchRequests();
-
+		
 		var createInputRequest = new OBSRequest{
-			requestType = "CreateInput",
+			requestType = "CreateSource",
 			requestData = new OBSRequestData{
+				{"sourceName", source},
+				{"sourceKind", "ffmpeg_source"},
 				{"sceneName", scene},
-				{"inputName", source},
-				{"inputKind", "ffmpeg_source"},
-				{"inputSettings", new OBSMediaInputSettings{
+				{"sourceSettings", new OBSMediaInputSettings{
 				  close_when_inactive = true,
 				  hw_decode = true,
 				  local_file = themeSongPath
 				}},
-				{"sceneItemEnabled", true}
+				{"setVisible", true}
 			}
-		};
-		requests.Add(createInputRequest);
-
+		};		
+		CPH.ObsSendRaw(createInputRequest.requestType, JsonConvert.SerializeObject(createInputRequest.requestData), obsConnectionID);
+		
 		var setInputVolumeRequest = new OBSRequest{
-			requestType = "SetInputVolume",
+			requestType = "SetVolume",
 			requestData = new OBSRequestData{
-				{"inputName", source},
-				{"inputVolumeMul", volumePercent}
+				{"source", source},
+				{"volume", volumePercent}
 			}
-		};
-		requests.Add(setInputVolumeRequest);
+		};		
+		CPH.ObsSendRaw(setInputVolumeRequest.requestType, JsonConvert.SerializeObject(setInputVolumeRequest.requestData), obsConnectionID);
 
 		var sleepRequest = new OBSRequest{
 			requestType = "Sleep",
 			requestData = new OBSRequestData{
 				{"sleepMillis", 100}
 			}
-		};
-		requests.Add(sleepRequest);
+		};		
+		CPH.ObsSendRaw(sleepRequest.requestType, JsonConvert.SerializeObject(sleepRequest.requestData), obsConnectionID);
 
 		var triggerMediaInputActionRequest = new OBSRequest{
-			requestType = "TriggerMediaInputAction",
+			requestType = "PlayPauseMedia",
 			requestData = new OBSRequestData{
-				{"inputName", source},
-				{"mediaAction", "OBS_WEBSOCKET_MEDIA_INPUT_ACTION_PAUSE"}
+				{"sourceName", source},
+				{"playPause", true}
 			}
 		};
-		requests.Add(triggerMediaInputActionRequest);
-
-		string data = JsonConvert.SerializeObject(requests);
-
-		CPH.ObsSendBatchRaw(data, false, 0, obsConnectionID);
-
+		CPH.ObsSendRaw(triggerMediaInputActionRequest.requestType, JsonConvert.SerializeObject(triggerMediaInputActionRequest.requestData), obsConnectionID);
+		
 		return true;
 	}
-
+	
 	public bool RemoveThemeSongMediaInput()
-	{
-		var removeInputRequestData = new OBSRequestData{
-			{"inputName", source}
+	{		
+		var deleteSceneItemRequestData = new OBSRequestData{
+			{"scene", scene},
+			{"item", new Dictionary<string,string>{
+				{"name", source}
+			}}
 		};
-
-		CPH.ObsSendRaw("RemoveInput", JsonConvert.SerializeObject(removeInputRequestData), obsConnectionID);
-
+		
+		CPH.ObsSendRaw("DeleteSceneItem", JsonConvert.SerializeObject(deleteSceneItemRequestData), obsConnectionID);
+		
 		return true;
 	}
-
+	
 	public bool OnSongEnd()
 	{
 		isThemeSongEnded = true;
@@ -174,7 +174,7 @@ public class CPHInline
 	public bool Listener()
 	{
 		isThemeSongEnded = false;
-
+		
 		while (!isThemeSongEnded) {
 			bool isDown = isDownCheck(keys);
 			bool isPressed = isPressedCheck(keys);
@@ -190,10 +190,10 @@ public class CPHInline
 			};
 			Thread.Sleep(100);
 		}
-
+		
 		return true;
 	}
-
+	
 	bool isPressedCheck(int[] keys) {
 		int state = 0;
 
@@ -212,7 +212,7 @@ public class CPHInline
 
 		return Convert.ToBoolean(state << 1);
 	}
-
+	
 	int hexStringToIntConverter(string value)
 	{
 		return int.Parse(value.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber);

@@ -1,4 +1,4 @@
-# ThemeSong
+# ThemeSong (WebSocket 4 version)
 [![Tutorial](ThemeSong_thumbnail.png)](https://www.youtube.com/watch?v=4YlquqggxPw)
 
 ## Add Theme song to your stream.
